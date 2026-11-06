@@ -12,7 +12,7 @@ export function LastPage() {
 
         <div className="cards">
           {t.contacts.map((c) => {
-            const external = c.kind === 'linkedin' || c.kind === 'github' || c.kind === 'cv'
+            const external = c.kind === 'linkedin' || c.kind === 'github'
             return (
               <a
                 key={c.kind}

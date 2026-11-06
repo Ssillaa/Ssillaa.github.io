@@ -8,7 +8,7 @@
 - **E-posta:** sila.byrm07@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/s%C4%B1la-bayram
 - **GitHub:** https://github.com/Ssillaa
-- **Özgeçmiş (PDF):** [public/Sila-Bayram-CV.pdf](public/Sila-Bayram-CV.pdf)
+- **Özgeçmiş:** istek üzerine e-postayla paylaşılır
 
 Bu depo kişisel portfolyo sitemin kaynak kodudur. Aşağıdaki "Profil" bölümü
 hem insanlar hem de depoları tarayan yapay zekâ ajanları için düzenli,

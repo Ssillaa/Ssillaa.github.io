@@ -21,7 +21,7 @@ function Icon({ size = 16, children }: { size?: number; children: ReactNode }) {
 
 export const ArrowRight = () => <Icon><path d="M5 12h14M13 6l6 6-6 6" /></Icon>
 export const ArrowDown = () => <Icon size={18}><path d="M12 5v14M6 13l6 6 6-6" /></Icon>
-export const Download = () => <Icon><path d="M12 3v12M7 10l5 5 5-5M5 21h14" /></Icon>
+export const Mail = () => <Icon><rect x="3" y="5" width="18" height="14" rx="2" /><path d="M3 7l9 6 9-6" /></Icon>
 export const Menu = () => <Icon><path d="M4 6h16M4 12h16M4 18h10" /></Icon>
 export const Close = () => <Icon><path d="M6 6l12 12M18 6L6 18" /></Icon>
 
@@ -52,6 +52,6 @@ export function ContactIcon({ kind }: { kind: 'mail' | 'phone' | 'linkedin' | 'g
         </Icon>
       )
     case 'cv':
-      return <Icon size={22}><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6M12 12v6M9 15l3 3 3-3" /></Icon>
+      return <Icon size={22}><path d="M14 3H6a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V9z" /><path d="M14 3v6h6M8 13h8M8 17h5" /></Icon>
   }
 }

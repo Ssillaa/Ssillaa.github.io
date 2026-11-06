@@ -160,4 +160,4 @@ Katkım: Elasticsearch entegrasyonu, ödeme sistemi geliştirme ve tanıtım say
 
 El yazısı başlık: Okuduğunuz için teşekkürler. :)
 
-Alt satır: Ankara · Referanslar istek üzerine paylaşılır.
+Alt satır: Ankara · Özgeçmişim ve referanslarım istek üzerine paylaşılır.

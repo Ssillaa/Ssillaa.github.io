@@ -4,7 +4,11 @@
 export type Lang = 'tr' | 'en'
 export const LANGS: Lang[] = ['tr', 'en']
 
-export const CV_URL = `${import.meta.env.BASE_URL}Sila-Bayram-CV.pdf`
+/** The CV is not published; a visitor asks for it by e-mail, the subject already filled in. */
+const CV_REQUEST = {
+  tr: 'mailto:sila.byrm07@gmail.com?subject=CV%20talebi',
+  en: 'mailto:sila.byrm07@gmail.com?subject=CV%20request',
+}
 
 /* ---------- Ids shared by both languages ---------- */
 
@@ -68,6 +72,7 @@ export interface Content {
     skills: string
     certificates: string
     cvButton: string
+    cvHref: string
     myPart: string
     now: string
     projectsHeading: string
@@ -120,7 +125,8 @@ const tr: Content = {
     education: 'Eğitim',
     skills: 'Yetkinlikler',
     certificates: 'Sertifikalar',
-    cvButton: 'CV indir (PDF)',
+    cvButton: 'CV’mi e-postayla isteyin',
+    cvHref: CV_REQUEST.tr,
     myPart: 'Katkım',
     now: 'bugün',
     projectsHeading: 'Projelerim',
@@ -278,12 +284,12 @@ const tr: Content = {
     { kind: 'mail', label: 'E-posta', value: 'sila.byrm07@gmail.com', href: LINKS.mail },
     { kind: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/sıla-bayram', href: LINKS.linkedin },
     { kind: 'github', label: 'GitHub', value: 'github.com/Ssillaa', href: LINKS.github },
-    { kind: 'cv', label: 'Özgeçmiş', value: 'CV’mi indir (PDF)', href: CV_URL },
+    { kind: 'cv', label: 'Özgeçmiş', value: 'İstek üzerine paylaşabilirim 🙂', href: CV_REQUEST.tr },
   ],
   last: {
     eyebrow: 'İletişim',
     title: 'Okuduğunuz için teşekkürler. :)',
-    footer: 'Ankara · Referanslar istek üzerine paylaşılır.',
+    footer: 'Ankara · Özgeçmişim ve referanslarım istek üzerine paylaşılır.',
   },
   drawing: {
     data: 'veri',
@@ -319,7 +325,8 @@ const en: Content = {
     education: 'Education',
     skills: 'Skills',
     certificates: 'Certificates',
-    cvButton: 'Download CV (PDF)',
+    cvButton: 'Request my CV by email',
+    cvHref: CV_REQUEST.en,
     myPart: 'My part',
     now: 'today',
     projectsHeading: 'My projects',
@@ -477,12 +484,12 @@ const en: Content = {
     { kind: 'mail', label: 'Email', value: 'sila.byrm07@gmail.com', href: LINKS.mail },
     { kind: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/sıla-bayram', href: LINKS.linkedin },
     { kind: 'github', label: 'GitHub', value: 'github.com/Ssillaa', href: LINKS.github },
-    { kind: 'cv', label: 'Résumé', value: 'Download my CV (PDF, Turkish)', href: CV_URL },
+    { kind: 'cv', label: 'Résumé', value: 'Happy to share on request 🙂', href: CV_REQUEST.en },
   ],
   last: {
     eyebrow: 'Contact',
     title: 'Thanks for reading. :)',
-    footer: 'Ankara · References available on request.',
+    footer: 'Ankara · CV and references available on request.',
   },
   drawing: {
     data: 'data',

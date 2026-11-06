@@ -1,8 +1,8 @@
 import { useEffect, useRef } from 'react'
 
-import { CV_URL, type ProjectId } from '../data'
+import type { ProjectId } from '../data'
 import { useLang } from '../i18n'
-import { ArrowRight, Close, Download } from './Icons'
+import { ArrowRight, Close, Mail } from './Icons'
 
 export type PanelId = 'kunye' | ProjectId
 
@@ -26,6 +26,15 @@ export function Panel({ id, onClose, onOpen }: { id: PanelId | null; onClose: ()
     if (!dialog) return
     if (id && !dialog.open) dialog.showModal()
     if (!id && dialog.open) dialog.close()
+    // While the panel is open the page behind it stays still: on a phone a
+    // swipe inside the sheet would otherwise scroll the story underneath.
+    document.documentElement.classList.toggle('is-locked', id !== null)
+    return () => document.documentElement.classList.remove('is-locked')
+  }, [id])
+
+  useEffect(() => {
+    // A new panel starts at its top, with the close button in view.
+    ref.current?.scrollTo(0, 0)
   }, [id])
 
   return (
@@ -125,8 +134,8 @@ function Kunye({ onOpen }: { onOpen: (id: ProjectId) => void }) {
         </ul>
       </section>
 
-      <a href={CV_URL} target="_blank" rel="noopener" className="btn btn--solid btn--wide">
-        <Download /> {t.ui.cvButton}
+      <a href={t.ui.cvHref} className="btn btn--solid btn--wide">
+        <Mail /> {t.ui.cvButton}
       </a>
     </>
   )

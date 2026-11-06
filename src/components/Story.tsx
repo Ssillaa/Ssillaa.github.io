@@ -1,10 +1,24 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef, useState, useSyncExternalStore } from 'react'
 
 import { SCENE_IDS, TEAM_FILES, type ProjectId } from '../data'
 import { useLang } from '../i18n'
 import { HobbyList } from './Hobbies'
 import { ArrowDown, ArrowRight } from './Icons'
 import { SceneDrawing } from './Scenes'
+
+const PHONE = '(max-width: 899px)'
+
+/** True on a phone-sized screen, and kept up to date when the window is resized. */
+function usePhone() {
+  return useSyncExternalStore(
+    (onChange) => {
+      const query = window.matchMedia(PHONE)
+      query.addEventListener('change', onChange)
+      return () => query.removeEventListener('change', onChange)
+    },
+    () => window.matchMedia(PHONE).matches,
+  )
+}
 
 /**
  * The sticky stage (HIKAYE-PLANI.md, K2): the drawing stays on screen while
@@ -21,16 +35,16 @@ export function Story({
   onActiveChange: (i: number) => void
 }) {
   const { t } = useLang()
+  const phone = usePhone()
   const [active, setActive] = useState(0)
   const [step, setStep] = useState(0)
   const stepRefs = useRef<(HTMLElement | null)[]>([])
 
   useEffect(() => {
-    // The text that counts is the one crossing a line through the text area:
-    // the middle of the screen on a desktop, lower on a phone, where the
-    // drawing takes the top of the screen (K10).
-    const phone = window.matchMedia('(max-width: 899px)').matches
-    const line = phone ? '-68% 0px -32% 0px' : '-50% 0px -50% 0px'
+    // The chapter that counts is the one crossing a line across the screen:
+    // the middle on a desktop; on a phone, where each chapter carries its own
+    // drawing, a little lower, so a drawing starts as it comes into view.
+    const line = phone ? '-62% 0px -38% 0px' : '-50% 0px -50% 0px'
     const observer = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
@@ -45,17 +59,19 @@ export function Story({
     )
     stepRefs.current.forEach((el) => el && observer.observe(el))
     return () => observer.disconnect()
-  }, [onActiveChange])
+  }, [onActiveChange, phone])
 
   return (
     <div className="story">
-      <div className="stage" aria-live="off">
-        <div className="stage__frame">
-          {SCENE_IDS.map((id, i) => (
-            <SceneDrawing key={id} id={id} active={i === active} words={t.drawing} />
-          ))}
+      {!phone && (
+        <div className="stage" aria-live="off">
+          <div className="stage__frame">
+            {SCENE_IDS.map((id, i) => (
+              <SceneDrawing key={id} id={id} active={i === active} words={t.drawing} />
+            ))}
+          </div>
         </div>
-      </div>
+      )}
 
       <div className="steps">
         {SCENE_IDS.map((sceneId, i) => {
@@ -70,6 +86,11 @@ export function Story({
             }}
             className={i === active ? 'step is-active' : 'step'}
           >
+            {phone && (
+              <div className="step__art">
+                <SceneDrawing id={scene.id} active={i <= active} words={t.drawing} />
+              </div>
+            )}
             <span className="eyebrow">{scene.label}</span>
             {i === 0 ? <h1 className="step__title step__title--cover">{scene.title}</h1> : <h2 className="step__title">{scene.title}</h2>}
             {scene.id === 'cover' && (
