@@ -6,6 +6,8 @@
 2. Kaydedin ve bana "metinleri güncelledim" yazın.
 3. Değişiklikleri siteye ben aktarırım.
 
+Bu dosya sitenin **Türkçe** yazılarını tutar. İngilizce karşılıkları `src/data.ts` dosyasında `en` bölümündedir; Türkçe bir yazıyı değiştirdiğinizde İngilizcesini de ben güncellerim.
+
 Bir cümleyi silmek isterseniz satırı boş bırakın. Bir şeyin nasıl görüneceğinden emin değilseniz yanına not düşebilirsiniz. Notu `(not: ...)` biçiminde yazın; ben okurum, siteye koymam.
 
 ---
@@ -53,6 +55,10 @@ Başlık: Fikirleri hayata geçirmek
 
 Metin: Kendi projelerimi geliştirerek fikirlerin çalışan sistemlere dönüşme sürecini deneyimledim. Yazılım, yapay zekâ ve ürün geliştirme yaklaşımımı bir araya getirdim.
 
+Projeler bölümünün başlığı: Projelerim
+
+Başlığın yanındaki yazı: Ayrıntısı için bir karta tıklayın
+
 ## Bölüm 4
 
 Üst satır: Bölüm 4 · Bugün
@@ -65,6 +71,18 @@ Nasıl çalışırım (her adım bir sekme; sekmeye tıklanınca yanındaki cüm
 - Netleştiririm: İhtiyacı herkesin aynı şeyi anladığı, kısa ve test edilebilir gereksinimlere çeviririm.
 - Geliştiririm: Çözümü ekiple birlikte, çoğunlukla LLM tabanlı ajanlar ve otomasyonlarla geliştiririm.
 - Test ederim: Gerçek senaryolarla dener, geri bildirimi toplar ve bir sonraki tura taşırım.
+
+## Bölüm 5
+
+Üst satır: Bölüm 5 · Müzik
+
+Başlık: Mesai bittiğinde
+
+Metin: Hobilerim benim için önemli; müzik de hayatımın büyük bir parçası. Ekranı kapattığımda şarkı söylemeye devam ediyorum. Bir de kedileri ve bitkileri çok severim :)
+
+Kartlar (her satır "kart başlığı: cümle"):
+- Koro: Bir koroda şarkı söylüyorum.
+- Bağlama: Bağlama çalıp söylüyorum.
 
 ---
 
@@ -80,6 +98,10 @@ Okul ve not: OSTİM Teknik Üniversitesi · GANO 3,41 · %100 burslu
 
 ## Panel · TalentAgent
 
+Karttaki kısa açıklama (Bölüm 3): Yapay zekâ destekli işe alım platformu
+
+Yeşil noktalı durum (kartta ve panelde): Şirkette aktif olarak kullanılıyor
+
 Üst satır: Bitirme projem · Baştan sona ben geliştirdim
 
 Metin: Yapay zekâ destekli mülakat ve işe alım platformu. Beni ekibe dahil eden projem.
@@ -94,6 +116,8 @@ Katkım: Ürün kurgusundan ekranlara, yapay zekâ akışlarından veritabanına
 
 ## Panel · Kurumsal ajan platformu
 
+Karttaki kısa açıklama (Bölüm 3): Yetki kontrollü yapay zekâ ajanları
+
 Üst satır: Ekip projesi 
 
 Metin: İş birimlerinin yetki kontrollü yapay zekâ ajanları ve otomatik süreçler kurup kullandığı, kurumun kendi altyapısında çalışan platform.
@@ -101,6 +125,8 @@ Metin: İş birimlerinin yetki kontrollü yapay zekâ ajanları ve otomatik sür
 Katkım: İş birimlerini dinleyerek ajan, yetenek ve araç tasarımı; son kullanıcı deneyimi ve geri bildirim.
 
 ## Panel · DevOps ajan ekibi
+
+Karttaki kısa açıklama (Bölüm 3): Hata kaydı ve kod inceleyen ajanlar
 
 Üst satır: Ekip projesi 
 
@@ -110,6 +136,8 @@ Katkım: Kayıt kalitesi ve kod inceleme kurallarının belirlenmesi; ajan çık
 
 ## Panel · Dijital ofis
 
+Karttaki kısa açıklama (Bölüm 3): Ajanların işini canlı izleten ofis
+
 Üst satır: Ekip projesi · İkinci versiyonunu geliştirdim
 
 Metin: Departmanlardaki yapay zekâ ajanlarının iş akışını çok katlı bir ofis olarak canlı izleten arayüz.
@@ -117,6 +145,8 @@ Metin: Departmanlardaki yapay zekâ ajanlarının iş akışını çok katlı bi
 Katkım: Etkileşimli ofis arayüzü ve departman senaryoları.
 
 ## Panel · Hukuki belge anonimleştirme
+
+Karttaki kısa açıklama (Bölüm 3): Kişisel bilgiyi gizleyen belge platformu
 
 Üst satır: Ekip projesi
 
@@ -129,15 +159,5 @@ Katkım: Elasticsearch entegrasyonu, ödeme sistemi geliştirme ve tanıtım say
 ## Son sayfa
 
 El yazısı başlık: Okuduğunuz için teşekkürler. :)
-
-Kod dışında (iletişim kartlarının altındaki küçük bölüm):
-
-Başlık: Kod dışında
-
-Cümle: Müzik hayatımın önemli bir parçası.
-
-Kartlar (her satır "kart başlığı: cümle"):
-- Koro: Bir koroda şarkı söylüyorum.
-- Bağlama: Bağlama çalıp söylüyorum.
 
 Alt satır: Ankara · Referanslar istek üzerine paylaşılır.

@@ -1,13 +1,14 @@
 import { useEffect, useRef } from 'react'
 
-import { CERTIFICATES, COVER, CV_URL, EDUCATION, EXPERIENCE, PROJECTS, SKILLS, type ProjectId } from '../data'
+import { CV_URL, type ProjectId } from '../data'
+import { useLang } from '../i18n'
 import { ArrowRight, Close, Download } from './Icons'
 
 export type PanelId = 'kunye' | ProjectId
 
 export function panelFromHash(hash: string): PanelId | null {
   const id = hash.replace('#', '')
-  if (id === 'kunye' || id in PROJECTS) return id as PanelId
+  if (id === 'kunye' || id === 'talentagent' || id === 'ajan' || id === 'devops' || id === 'ofis' || id === 'hukuk') return id
   return null
 }
 
@@ -17,6 +18,7 @@ export function panelFromHash(hash: string): PanelId | null {
  * in from the right on a desktop and up from the bottom on a phone.
  */
 export function Panel({ id, onClose, onOpen }: { id: PanelId | null; onClose: () => void; onOpen: (id: ProjectId) => void }) {
+  const { t } = useLang()
   const ref = useRef<HTMLDialogElement>(null)
 
   useEffect(() => {
@@ -30,7 +32,7 @@ export function Panel({ id, onClose, onOpen }: { id: PanelId | null; onClose: ()
     <dialog
       ref={ref}
       className="panel"
-      aria-label={id === 'kunye' ? COVER.more : id ? PROJECTS[id].title : undefined}
+      aria-label={id === 'kunye' ? t.cover.more : id ? t.projects[id].title : undefined}
       onCancel={(e) => {
         e.preventDefault()
         onClose()
@@ -41,8 +43,8 @@ export function Panel({ id, onClose, onOpen }: { id: PanelId | null; onClose: ()
     >
       <div className="panel__inner">
         <div className="panel__head">
-          <span className="eyebrow">{id === 'kunye' ? COVER.more : id ? PROJECTS[id].label : ''}</span>
-          <button type="button" className="round-btn" aria-label="Paneli kapat" onClick={onClose}>
+          <span className="eyebrow">{id === 'kunye' ? t.cover.more : id ? t.projects[id].label : ''}</span>
+          <button type="button" className="round-btn" aria-label={t.ui.closePanel} onClick={onClose}>
             <Close />
           </button>
         </div>
@@ -54,18 +56,19 @@ export function Panel({ id, onClose, onOpen }: { id: PanelId | null; onClose: ()
 }
 
 function Kunye({ onOpen }: { onOpen: (id: ProjectId) => void }) {
+  const { t } = useLang()
   return (
     <>
       <section className="panel__section">
-        <h2 className="panel__h">Deneyim</h2>
-        {EXPERIENCE.map((org, i) => (
+        <h2 className="panel__h">{t.ui.experience}</h2>
+        {t.experience.map((org, i) => (
           <div key={org.company} className="org">
             <h3 className="org__name">{org.company}</h3>
             <ol className="timeline">
               {org.roles.map((r, n) => (
                 <li key={r.title} className={i === 0 && n === 0 ? 'is-now' : undefined}>
                   <span className="timeline__title">{r.title}</span>
-                  <span className="timeline__year">{i === 0 && n === 0 ? `${r.year} · bugün` : r.year}</span>
+                  <span className="timeline__year">{i === 0 && n === 0 ? `${r.year} · ${t.ui.now}` : r.year}</span>
                 </li>
               ))}
             </ol>
@@ -74,9 +77,9 @@ function Kunye({ onOpen }: { onOpen: (id: ProjectId) => void }) {
       </section>
 
       <section className="panel__section">
-        <h2 className="panel__h">Projeler</h2>
+        <h2 className="panel__h">{t.ui.projects}</h2>
         <ul className="works">
-          {Object.values(PROJECTS).map((p) => (
+          {Object.values(t.projects).map((p) => (
             <li key={p.id}>
               <button type="button" className="work" onClick={() => onOpen(p.id)}>
                 <span className="work__title">{p.title}</span>
@@ -92,20 +95,20 @@ function Kunye({ onOpen }: { onOpen: (id: ProjectId) => void }) {
       </section>
 
       <section className="panel__section">
-        <h2 className="panel__h">Eğitim</h2>
+        <h2 className="panel__h">{t.ui.education}</h2>
         <div className="edu">
-          <span className="edu__years">{EDUCATION.years}</span>
-          <span className="org__name">{EDUCATION.program}</span>
+          <span className="edu__years">{t.education.years}</span>
+          <span className="org__name">{t.education.program}</span>
           <span className="panel__muted">
-            {EDUCATION.school} · {EDUCATION.detail}
+            {t.education.school} · {t.education.detail}
           </span>
         </div>
       </section>
 
       <section className="panel__section">
-        <h2 className="panel__h">Yetkinlikler</h2>
+        <h2 className="panel__h">{t.ui.skills}</h2>
         <ul className="tags">
-          {SKILLS.map((s) => (
+          {t.skills.map((s) => (
             <li key={s} className="tag">
               {s}
             </li>
@@ -114,26 +117,33 @@ function Kunye({ onOpen }: { onOpen: (id: ProjectId) => void }) {
       </section>
 
       <section className="panel__section">
-        <h2 className="panel__h">Sertifikalar</h2>
+        <h2 className="panel__h">{t.ui.certificates}</h2>
         <ul className="plain-list">
-          {CERTIFICATES.map((c) => (
+          {t.certificates.map((c) => (
             <li key={c}>{c}</li>
           ))}
         </ul>
       </section>
 
       <a href={CV_URL} target="_blank" rel="noopener" className="btn btn--solid btn--wide">
-        <Download /> CV indir (PDF)
+        <Download /> {t.ui.cvButton}
       </a>
     </>
   )
 }
 
 function ProjectDetail({ id }: { id: ProjectId }) {
-  const p = PROJECTS[id]
+  const { t } = useLang()
+  const p = t.projects[id]
   return (
     <section className="panel__section panel__section--first">
       <h2 className="panel__title">{p.title}</h2>
+      {p.status && (
+        <span className="live live--panel">
+          <span className="live__dot" aria-hidden="true" />
+          {p.status}
+        </span>
+      )}
       <p className="panel__lead">{p.text}</p>
       {p.points && (
         <ul className="plain-list plain-list--ticks">
@@ -143,7 +153,7 @@ function ProjectDetail({ id }: { id: ProjectId }) {
         </ul>
       )}
       <div className="role">
-        <span className="role__label">Katkım</span>
+        <span className="role__label">{t.ui.myPart}</span>
         <span>{p.role}</span>
       </div>
       <ul className="tags">

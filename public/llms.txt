@@ -1,0 +1,44 @@
+# Sıla Bayram
+
+> Junior Software Specialist (Junior Yazılım Uzmanı) at ARD Grup Bilişim Teknolojileri, Ankara, Türkiye. Builds LLM-based AI agents and process automation, gathers and clarifies requirements with business units, and tests what the team ships.
+
+## Contact
+
+- Email: sila.byrm07@gmail.com
+- LinkedIn: https://www.linkedin.com/in/s%C4%B1la-bayram
+- GitHub: https://github.com/Ssillaa
+- CV (PDF, Turkish): https://ssillaa.github.io/Sila-Bayram-CV.pdf
+- Site: https://ssillaa.github.io/
+
+## Education
+
+- OSTİM Technical University — B.Sc. Management Information Systems (English-taught, scholarship), 2021–2026, GPA 3.41/4
+
+## Experience
+
+- ARD Grup Bilişim Teknolojileri — Junior Software Specialist, Jul 2026 – present
+- ARD Grup Bilişim Teknolojileri — Software Development Intern, Feb 2026 – Jun 2026
+- ARD Grup Bilişim Teknolojileri — National R&D Intern, Feb 2025 – Dec 2025
+- Eti Maden İşletmeleri Genel Müdürlüğü — MIS Intern, Jun 2025 – Jul 2025
+- Fidanboy IT Academy & Consulting Center — Software Quality Assurance Intern, Sep 2024 – Dec 2024
+- ARD Grup Bilişim Teknolojileri — AI Intern, Nov 2023 – Jun 2024
+
+## Projects
+
+- TalentAgent — AI-assisted hiring platform: parses CVs, prepares interview questions for a job post, evaluates answers and explains every score. Built solo as her graduation project; in active use at the company. Python, Flask, Angular, PostgreSQL, local LLM, MinIO.
+- Enterprise AI agent and process automation platform — team project; agent, skill and tool design with business units, end-user experience and feedback. Python, FastAPI, React, LLM.
+- DevOps agents that review work items and pull requests — team project; review rules and agent output quality. Node.js, Azure DevOps, LLM.
+- Digital office that shows department agents at work — team project, second version; interactive office UI and department scenarios. React, Vite, Node.js.
+- Turkish legal document anonymisation platform — team project; Elasticsearch integration, payment system, landing page.
+
+## Skills
+
+Python (advanced), Java, JavaScript, HTML, CSS, Flask, FastAPI, Angular, React, LLM integration, NLP, machine learning, requirements analysis, testing and feedback, documentation, Jira, Scrum/Agile, ISO 27001/9001.
+
+## Languages
+
+Turkish (native), English (B2).
+
+## Outside work
+
+Sings in a choir and plays the bağlama. Loves cats and plants.

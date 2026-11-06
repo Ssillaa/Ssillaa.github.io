@@ -3,13 +3,47 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="description" content="Sıla Bayram — Junior Yazılım Uzmanı. Departmanlarla iletişim, gereksinim analizi, ürün geliştirme ve LLM entegrasyonu." />
+    <meta name="description" content="Sıla Bayram — ARD Grup Bilişim'de Junior Yazılım Uzmanı. LLM tabanlı yapay zekâ ajanları, süreç otomasyonu, gereksinim analizi ve test. TalentAgent'ın geliştiricisi." />
+    <meta name="author" content="Sıla Bayram" />
+    <meta property="og:type" content="profile" />
+    <meta property="og:title" content="Sıla Bayram — Junior Yazılım Uzmanı" />
+    <meta property="og:description" content="Teknolojiyle iş ihtiyaçları arasında bağ kuruyorum: yazılım geliştiriyor, yapay zekâ çözümleri üzerinde çalışıyor, fikirleri işleyen ürünlere dönüştürüyorum." />
+    <meta property="og:url" content="https://ssillaa.github.io/" />
+    <meta property="og:locale" content="tr_TR" />
+    <link rel="canonical" href="https://ssillaa.github.io/" />
+    <link rel="alternate" type="text/plain" href="/llms.txt" title="Profile for AI agents" />
     <meta name="theme-color" content="#F2F0E8" />
+    <script>
+      // Day or night before the first paint: the visitor's last choice, else the system setting.
+      (function () {
+        var t
+        try { t = localStorage.getItem('theme') } catch (e) {}
+        if (t !== 'light' && t !== 'dark') t = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+        document.documentElement.dataset.theme = t
+        if (t === 'dark') document.querySelector('meta[name="theme-color"]').setAttribute('content', '#121a17')
+      })()
+    </script>
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500&family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Inter:wght@400;500;600&family=Newsreader:opsz,wght@6..72,400;6..72,500&display=swap" />
     <title>Sıla Bayram — Portfolyo</title>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Sıla Bayram",
+        "jobTitle": "Junior Yazılım Uzmanı (Junior Software Specialist)",
+        "worksFor": { "@type": "Organization", "name": "ARD Grup Bilişim Teknolojileri" },
+        "address": { "@type": "PostalAddress", "addressLocality": "Ankara", "addressCountry": "TR" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "OSTİM Teknik Üniversitesi" },
+        "email": "mailto:sila.byrm07@gmail.com",
+        "url": "https://ssillaa.github.io/",
+        "sameAs": ["https://www.linkedin.com/in/s%C4%B1la-bayram", "https://github.com/Ssillaa"],
+        "knowsLanguage": ["tr", "en"],
+        "knowsAbout": ["Python", "LLM integration", "AI agents", "Process automation", "NLP", "Flask", "FastAPI", "Angular", "React", "Requirements analysis", "Software testing", "Scrum", "Jira"]
+      }
+    </script>
   </head>
   <body>
     <div id="root"></div>

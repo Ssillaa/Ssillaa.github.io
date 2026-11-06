@@ -1,6 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { COVER, COVER_FACTS, PROJECTS, SCENES, STEPS, TEAM_FILES, type ProjectId } from '../data'
+import { SCENE_IDS, TEAM_FILES, type ProjectId } from '../data'
+import { useLang } from '../i18n'
+import { HobbyList } from './Hobbies'
 import { ArrowDown, ArrowRight } from './Icons'
 import { SceneDrawing } from './Scenes'
 
@@ -18,6 +20,7 @@ export function Story({
   onOpenMore: () => void
   onActiveChange: (i: number) => void
 }) {
+  const { t } = useLang()
   const [active, setActive] = useState(0)
   const [step, setStep] = useState(0)
   const stepRefs = useRef<(HTMLElement | null)[]>([])
@@ -48,14 +51,16 @@ export function Story({
     <div className="story">
       <div className="stage" aria-live="off">
         <div className="stage__frame">
-          {SCENES.map((scene, i) => (
-            <SceneDrawing key={scene.id} id={scene.id} active={i === active} />
+          {SCENE_IDS.map((id, i) => (
+            <SceneDrawing key={id} id={id} active={i === active} words={t.drawing} />
           ))}
         </div>
       </div>
 
       <div className="steps">
-        {SCENES.map((scene, i) => (
+        {SCENE_IDS.map((sceneId, i) => {
+          const scene = { id: sceneId, ...t.scenes[sceneId] }
+          return (
           <section
             key={scene.id}
             id={`sahne-${i}`}
@@ -68,14 +73,14 @@ export function Story({
             <span className="eyebrow">{scene.label}</span>
             {i === 0 ? <h1 className="step__title step__title--cover">{scene.title}</h1> : <h2 className="step__title">{scene.title}</h2>}
             {scene.id === 'cover' && (
-              <p className="byline">{COVER.role}</p>
+              <p className="byline">{t.cover.role}</p>
             )}
             <p className="step__text">{scene.text}</p>
 
             {scene.id === 'cover' && (
               <>
                 <dl className="facts">
-                  {COVER_FACTS.map((f) => (
+                  {t.cover.facts.map((f) => (
                     <div key={f.label}>
                       <dt>{f.label}</dt>
                       <dd>{f.value}</dd>
@@ -84,42 +89,63 @@ export function Story({
                 </dl>
                 <div className="cta">
                   <button type="button" className="btn btn--outline" onClick={onOpenMore}>
-                    {COVER.more} <ArrowRight />
+                    {t.cover.more} <ArrowRight />
                   </button>
                   <a href="#sahne-1" className="hint">
-                    <ArrowDown /> {COVER.ctaNote}
+                    <ArrowDown /> {t.cover.ctaNote}
                   </a>
                 </div>
               </>
             )}
 
             {scene.id === 'product' && (
-              <div className="projects">
-                <button type="button" className="chip-btn chip-btn--main" onClick={() => onOpen('talentagent')}>
-                  {PROJECTS.talentagent.title}
-                </button>
-                {TEAM_FILES.map((id) => (
-                  <button key={id} type="button" className="chip-btn" onClick={() => onOpen(id)}>
-                    {PROJECTS[id].title}
-                  </button>
-                ))}
-              </div>
+              <section className="projects" aria-labelledby="projelerim">
+                <div className="projects__head">
+                  <h3 id="projelerim" className="projects__title">
+                    {t.ui.projectsHeading}
+                  </h3>
+                  <span className="projects__hint">{t.ui.projectsHint}</span>
+                </div>
+                <div className="projects__grid">
+                  {(['talentagent', ...TEAM_FILES] as ProjectId[]).map((id) => (
+                    <button
+                      key={id}
+                      type="button"
+                      className={id === 'talentagent' ? 'pcard pcard--main' : 'pcard'}
+                      onClick={() => onOpen(id)}
+                    >
+                      <span className="pcard__kind">{id === 'talentagent' ? t.ui.mainKind : t.projects[id].kind}</span>
+                      <span className="pcard__title">{t.projects[id].title}</span>
+                      <span className="pcard__summary">{t.projects[id].summary}</span>
+                      {t.projects[id].status && (
+                        <span className="live">
+                          <span className="live__dot" aria-hidden="true" />
+                          {t.projects[id].status}
+                        </span>
+                      )}
+                      <span className="pcard__more">
+                        {t.ui.details} <ArrowRight />
+                      </span>
+                    </button>
+                  ))}
+                </div>
+              </section>
             )}
 
             {scene.id === 'bridge' && (
               <>
                 <div className="howto">
-                  <span className="howto__label">Nasıl çalışırım</span>
+                  <span className="howto__label">{t.ui.howto}</span>
                   <p className="howto__text" aria-live="polite">
                     <strong>
-                      {String(step + 1).padStart(2, '0')} {STEPS[step].title}.
+                      {String(step + 1).padStart(2, '0')} {t.steps[step].title}.
                     </strong>{' '}
-                    {STEPS[step].text}
+                    {t.steps[step].text}
                   </p>
-                  <div className="howto__tabs" role="group" aria-label="Çalışma adımları">
-                    {STEPS.map((s, n) => (
+                  <div className="howto__tabs" role="group" aria-label={t.ui.howtoAria}>
+                    {t.steps.map((s, n) => (
                       <button
-                        key={s.title}
+                        key={n}
                         type="button"
                         className={n === step ? 'howto__tab is-active' : 'howto__tab'}
                         aria-pressed={n === step}
@@ -132,8 +158,11 @@ export function Story({
                 </div>
               </>
             )}
+
+            {scene.id === 'music' && <HobbyList />}
           </section>
-        ))}
+          )
+        })}
       </div>
     </div>
   )

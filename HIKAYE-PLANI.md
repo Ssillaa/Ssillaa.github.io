@@ -86,6 +86,7 @@ Yeni bir renk eklenmez. Durumlar ve hover bu dört rengin açık/koyu tonlarıyl
 - **Renk:** Pirinç her sahnede en fazla bir küçük vurgu olarak kullanılır, örneğin lambanın ışığı. Fıstık yeşili yalnızca saklı küçük bir ayrıntıdadır.
 - **Hareket:** Sahne girerken çizgiler kalemle çiziliyormuş gibi belirir (SVG `stroke-dashoffset`). Çizim önceki sahneden dönüşerek gelir. Kitap okuma hissini taşıyan hareket bu.
 - **Çizimler:** Hepsi kodda SVG olarak durur. Dış görsel, stok illüstrasyon ya da ekran görüntüsü kullanılmaz.
+- **Güncelleme (Kasım 2026):** Kalem görünümü **Rough.js** (`roughjs`, MIT) ile çizilir. Şekiller temiz SVG yolu olarak yazılır, `src/components/sketch.ts` onları elle çizilmiş yola, taramaya ve renk lekesine çevirir. Çizim yine React'te SVG olarak durur; çizilme animasyonu aynen çalışır. Hafif yeşil ve pirinç renk lekeleri kullanıcı isteğiyle eklendi.
 
 ### K5 · Yazı tipi: Newsreader + Inter
 
@@ -168,6 +169,7 @@ TalentAgent paneli: neler yaptığı (CV ayrıştırma, bağlama uygun mülakat 
 - **Metin:** CSS geçişiyle kayar ve belirir.
 - **Azaltılmış hareket:** `prefers-reduced-motion` açıksa çizimler doğrudan tam hâliyle görünür, hiçbir şey kaymaz.
 - **Bilinçli vazgeçiş:** Kaydırmaya milim milim bağlı (scrub) hareket yok. Sahneler bütün olarak değişir.
+- **İstisna (Kasım 2026):** Çizim için Rough.js eklendi (kullanıcı kararı, ordinus.dev örneği). Hareket kütüphanesi hâlâ yok.
 
 ### K12 · Önce tuvalde onay, sonra kod
 

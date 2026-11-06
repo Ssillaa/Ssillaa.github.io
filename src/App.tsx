@@ -1,14 +1,17 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 
-import { SCENES } from './data'
+import { SCENE_IDS } from './data'
+import { useLang } from './i18n'
+import { Controls } from './components/Controls'
 import { InkTrail } from './components/InkTrail'
 import { LastPage } from './components/LastPage'
 import { Panel, panelFromHash, type PanelId } from './components/Panel'
 import { Story } from './components/Story'
 
-const CHAPTERS = SCENES.length - 1
+const CHAPTERS = SCENE_IDS.length - 1
 
 export function App() {
+  const { t } = useLang()
   const [panel, setPanel] = useState<PanelId | null>(() => panelFromHash(window.location.hash))
   const [scene, setScene] = useState(0)
   const pushed = useRef(false)
@@ -30,7 +33,7 @@ export function App() {
     const last = document.getElementById('iletisim')
     if (!last) return
     const observer = new IntersectionObserver(
-      ([entry]) => entry.isIntersecting && setScene(SCENES.length),
+      ([entry]) => entry.isIntersecting && setScene(SCENE_IDS.length),
       { rootMargin: '-50% 0px -50% 0px' },
     )
     observer.observe(last)
@@ -56,20 +59,16 @@ export function App() {
   }, [])
 
   const goTo = (i: number) => {
-    const target = i < SCENES.length ? document.getElementById(`sahne-${i}`) : document.getElementById('iletisim')
+    const target = i < SCENE_IDS.length ? document.getElementById(`sahne-${i}`) : document.getElementById('iletisim')
     target?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth' })
   }
 
   return (
     <>
-      {scene > 0 && scene <= CHAPTERS && (
-        <span className="progress" aria-hidden="true">
-          Bölüm {scene} / {CHAPTERS}
-        </span>
-      )}
+      <Controls progress={scene > 0 && scene <= CHAPTERS ? t.ui.progress(scene, CHAPTERS) : null} />
 
-      <nav className="dots" aria-label="Bölümler">
-        {[...SCENES.map((s) => s.title), 'İletişim'].map((title, i) => (
+      <nav className="dots" aria-label={t.ui.chapters}>
+        {[...SCENE_IDS.map((id) => t.scenes[id].title), t.ui.contact].map((title, i) => (
           <button
             key={title}
             type="button"
