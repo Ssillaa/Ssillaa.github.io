@@ -30,7 +30,7 @@ export function Controls({ progress }: { progress: string | null }) {
     try {
       localStorage.setItem('theme', next)
     } catch {
-      // Not remembered across visits; the system setting decides next time.
+      // Not remembered across visits; the site opens in day mode next time.
     }
   }
 

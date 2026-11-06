@@ -257,18 +257,32 @@ button { font: inherit; color: inherit; }
   .progress { margin-right: auto; }
   .switch__opt { min-width: 38px; min-height: 32px; }
   .theme-btn { width: 38px; height: 38px; }
-  .projects__grid { grid-template-columns: minmax(0, 1fr); }
   .last__inner { padding-top: calc(var(--top) + 32px); }
+  /* A page per chapter: the scroll stops at each one, the way the drawing
+     holds still on a desktop. A chapter taller than the screen (the project
+     cards) scrolls freely inside before the next stop. */
+  html { scroll-snap-type: y mandatory; }
   .story { display: block; }
-  .steps { padding: calc(var(--top) + 8px) 20px 72px; }
-  .step { min-height: 0; max-width: none; justify-content: flex-start; padding: 24px 0 40px; gap: 14px; opacity: 1; transform: none; border-bottom: 1px solid var(--line); }
-  .step:last-child { border-bottom: none; }
-  .step__art { position: relative; width: 100%; max-width: 460px; margin: 0 auto 4px; aspect-ratio: 600 / 520; }
+  .steps { padding: 0 20px; }
+  .step { min-height: 100svh; max-width: none; justify-content: center; padding: calc(var(--top) + 10px) 0 calc(64px + env(safe-area-inset-bottom)); gap: 10px; opacity: 1; transform: none; scroll-snap-align: start; }
+  .step__art { position: relative; height: min(28svh, calc((100vw - 40px) * 0.8667)); aspect-ratio: 600 / 520; margin: 0 auto 4px; flex: none; }
   .step__art .scene { position: absolute; }
-  .step__title { font-size: 48px; }
-  .step__title--cover { font-size: 60px; }
-  .step__text { font-size: 19px; }
-  .dots { top: auto; bottom: 14px; right: 50%; transform: translateX(50%); flex-direction: row; gap: 0; padding: 0 6px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--line); }
+  .step:first-child .step__art { height: min(22svh, calc((100vw - 40px) * 0.8667)); }
+  /* Project cards swipe sideways, so the chapter fits on one screen. */
+  .projects__grid { display: flex; gap: 10px; margin: 0 -20px; padding: 2px 20px 6px; overflow-x: auto; scroll-snap-type: x mandatory; overscroll-behavior-x: contain; scrollbar-width: none; }
+  .projects__grid::-webkit-scrollbar { display: none; }
+  .pcard { flex: 0 0 76%; scroll-snap-align: start; scroll-margin-left: 20px; }
+  .pcard:hover { transform: none; }
+  .pcard--main .pcard__title { font-size: 22px; }
+  .projects { padding-top: 12px; gap: 10px; }
+  .step__title { font-size: 36px; }
+  .step__title--cover { font-size: 46px; }
+  .step__text { font-size: 17px; line-height: 1.5; }
+  .byline { font-size: 21px; margin-top: -2px; }
+  .facts { padding-top: 12px; gap: 10px 16px; }
+  .howto { padding: 14px; gap: 10px; }
+  .last { scroll-snap-align: start; }
+  .dots { top: auto; bottom: calc(12px + env(safe-area-inset-bottom)); right: 50%; transform: translateX(50%); flex-direction: row; gap: 0; padding: 0 6px; border-radius: 999px; background: var(--paper-2); border: 1px solid var(--line); }
   .panel { inset: auto 0 0 0; width: 100vw; height: auto; max-height: 88dvh; border-left: none; border-top: 1px solid var(--line); border-radius: 20px 20px 0 0; }
   .panel[open] { animation: slide-up 0.35s cubic-bezier(0.2, 0.8, 0.2, 1); }
   .panel__inner { padding: 24px 20px calc(32px + env(safe-area-inset-bottom)); gap: 22px; }
@@ -277,6 +291,36 @@ button { font: inherit; color: inherit; }
   .panel__head .eyebrow { padding-top: 8px; }
   .round-btn { margin-top: 6px; }
   .panel__title { font-size: 36px; }
+}
+
+/* Short phones (iPhone SE and the like): tighter type, and stops that only
+   catch near a chapter's start, so a page a little taller than the screen
+   never pulls the reader back. */
+@media (max-width: 899px) and (max-height: 760px) {
+  html { scroll-snap-type: y proximity; }
+  .step { gap: 8px; padding-bottom: calc(58px + env(safe-area-inset-bottom)); }
+  .step__art { height: min(24svh, calc((100vw - 40px) * 0.8667)); }
+  .step:first-child .step__art { height: min(18svh, calc((100vw - 40px) * 0.8667)); }
+  .step__title { font-size: 32px; }
+  .step__title--cover { font-size: 40px; }
+  .step__text { font-size: 16px; }
+  .byline { font-size: 19px; }
+  .facts dd { font-size: 14px; }
+  .howto__text { min-height: 0; font-size: 14px; }
+  .hobby { padding: 8px 12px; }
+  .hobby__art { width: 72px; }
+  .hobby { grid-template-columns: 72px minmax(0, 1fr); }
+  .step { gap: 6px; padding-top: calc(var(--top) + 6px); }
+  .step__title--cover { font-size: 38px; }
+  .byline { font-size: 18px; }
+  .step__text { font-size: 15.5px; line-height: 1.45; }
+  .facts { padding-top: 8px; gap: 6px 14px; }
+  .facts dd { font-size: 13px; }
+  .cta { gap: 8px 16px; }
+  .cta .btn { min-height: 44px; font-size: 14px; padding: 0 18px; }
+  .projects { padding-top: 8px; gap: 8px; }
+  .pcard { padding: 10px 14px; }
+  .howto__tab { min-height: 36px; }
 }
 
 /* ---------- Motion ---------- */

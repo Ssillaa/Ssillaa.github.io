@@ -103,7 +103,7 @@ Kaydırdıkça değişen, kitap okur gibi ilerleyen tek sayfalık bir hikâye si
 çizilmiş görünüme kavuşur.
 
 - **İki dil:** Türkçe ve İngilizce. İlk ziyarette tarayıcının dili seçilir; `?lang=en` ya da `?lang=tr` ile doğrudan açılabilir.
-- **Gündüz ve gece modu:** Sistem ayarını izler, sağ üstteki düğmeyle değişir, seçim hatırlanır.
+- **Gündüz ve gece modu:** Gündüz açılır, sağ üstteki düğmeyle geceye geçer, seçim hatırlanır.
 - **Mobil uyumlu:** Telefonda çizim üstte, metin altta; üst çubukta dil ve tema düğmeleri.
 
 | Katman | Seçim |

@@ -37,6 +37,16 @@ export function Story({
   const { t } = useLang()
   const phone = usePhone()
   const [active, setActive] = useState(0)
+  // The furthest chapter reached: on a phone a drawing draws itself once,
+  // when its chapter is first reached, and is never erased again.
+  const [seen, setSeen] = useState(0)
+  // The first drawing starts blank and draws itself in once the page has
+  // painted; drawn from the first frame it would simply appear, finished.
+  const [ready, setReady] = useState(false)
+  useEffect(() => {
+    const timer = window.setTimeout(() => setReady(true), 120)
+    return () => window.clearTimeout(timer)
+  }, [])
   const [step, setStep] = useState(0)
   const stepRefs = useRef<(HTMLElement | null)[]>([])
 
@@ -51,6 +61,7 @@ export function Story({
           if (entry.isIntersecting) {
             const i = Number((entry.target as HTMLElement).dataset.index)
             setActive(i)
+            setSeen((s) => Math.max(s, i))
             onActiveChange(i)
           }
         }
@@ -67,7 +78,7 @@ export function Story({
         <div className="stage" aria-live="off">
           <div className="stage__frame">
             {SCENE_IDS.map((id, i) => (
-              <SceneDrawing key={id} id={id} active={i === active} words={t.drawing} />
+              <SceneDrawing key={id} id={id} active={ready && i === active} words={t.drawing} />
             ))}
           </div>
         </div>
@@ -88,7 +99,7 @@ export function Story({
           >
             {phone && (
               <div className="step__art">
-                <SceneDrawing id={scene.id} active={i <= active} words={t.drawing} />
+                <SceneDrawing id={scene.id} active={ready && i <= seen} words={t.drawing} />
               </div>
             )}
             <span className="eyebrow">{scene.label}</span>
