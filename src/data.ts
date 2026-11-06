@@ -284,7 +284,7 @@ const tr: Content = {
     { kind: 'mail', label: 'E-posta', value: 'sila.byrm07@gmail.com', href: LINKS.mail },
     { kind: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/sıla-bayram', href: LINKS.linkedin },
     { kind: 'github', label: 'GitHub', value: 'github.com/Ssillaa', href: LINKS.github },
-    { kind: 'cv', label: 'Özgeçmiş', value: 'İstek üzerine paylaşabilirim 🙂', href: CV_REQUEST.tr },
+    { kind: 'cv', label: 'Özgeçmiş', value: 'İstek üzerine paylaşabilirim :)', href: CV_REQUEST.tr },
   ],
   last: {
     eyebrow: 'İletişim',
@@ -484,7 +484,7 @@ const en: Content = {
     { kind: 'mail', label: 'Email', value: 'sila.byrm07@gmail.com', href: LINKS.mail },
     { kind: 'linkedin', label: 'LinkedIn', value: 'linkedin.com/in/sıla-bayram', href: LINKS.linkedin },
     { kind: 'github', label: 'GitHub', value: 'github.com/Ssillaa', href: LINKS.github },
-    { kind: 'cv', label: 'Résumé', value: 'Happy to share on request 🙂', href: CV_REQUEST.en },
+    { kind: 'cv', label: 'Résumé', value: 'Happy to share on request :)', href: CV_REQUEST.en },
   ],
   last: {
     eyebrow: 'Contact',
