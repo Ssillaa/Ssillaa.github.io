@@ -70,14 +70,14 @@ function Kunye({ onOpen }: { onOpen: (id: ProjectId) => void }) {
     <>
       <section className="panel__section">
         <h2 className="panel__h">{t.ui.experience}</h2>
-        {t.experience.map((org, i) => (
+        {t.experience.map((org) => (
           <div key={org.company} className="org">
             <h3 className="org__name">{org.company}</h3>
             <ol className="timeline">
-              {org.roles.map((r, n) => (
-                <li key={r.title} className={i === 0 && n === 0 ? 'is-now' : undefined}>
+              {org.roles.map((r) => (
+                <li key={r.title}>
                   <span className="timeline__title">{r.title}</span>
-                  <span className="timeline__year">{i === 0 && n === 0 ? `${r.year} · ${t.ui.now}` : r.year}</span>
+                  <span className="timeline__year">{r.year}</span>
                 </li>
               ))}
             </ol>

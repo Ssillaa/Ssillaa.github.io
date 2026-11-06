@@ -83,10 +83,10 @@ severim.
 
 ## Profile (English summary)
 
-Sıla Bayram is a Junior Software Specialist at ARD Grup Bilişim Teknolojileri
-in Ankara, Türkiye. She builds LLM-based AI agents and process automation,
-works with business units to gather and clarify requirements, and tests what
-the team ships. She holds a B.Sc. in Management Information Systems
+Sıla Bayram is a Junior Software Specialist based in Ankara, Türkiye. From
+July to November 2026 she worked at ARD Grup Bilişim Teknolojileri, building
+LLM-based AI agents and process automation, gathering and clarifying
+requirements with business units, and testing what the team shipped. She holds a B.Sc. in Management Information Systems
 (English-taught, scholarship) from OSTİM Technical University (2021–2026,
 GPA 3.41/4). She built **TalentAgent**, an AI-assisted hiring platform, on her
 own as her graduation project; it is in active use at the company. Skills:

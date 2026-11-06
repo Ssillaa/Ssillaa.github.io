@@ -254,7 +254,7 @@ const tr: Content = {
     {
       company: 'ARD Grup Bilişim Teknolojileri',
       roles: [
-        { title: 'Junior Yazılım Uzmanı', year: '2026' },
+        { title: 'Junior Yazılım Uzmanı', year: 'Tem–Kas 2026' },
         { title: 'Yazılım Geliştirme Stajyeri', year: '2026' },
         { title: 'Ulusal Ar-Ge Stajyeri', year: '2025' },
         { title: 'Yapay Zekâ Stajyeri', year: '2023–24' },
@@ -454,7 +454,7 @@ const en: Content = {
     {
       company: 'ARD Grup Bilişim Teknolojileri',
       roles: [
-        { title: 'Junior Software Specialist', year: '2026' },
+        { title: 'Junior Software Specialist', year: 'Jul–Nov 2026' },
         { title: 'Software Development Intern', year: '2026' },
         { title: 'National R&D Intern', year: '2025' },
         { title: 'AI Intern', year: '2023–24' },
