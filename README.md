@@ -5,7 +5,6 @@
 > işleyen ürünlere dönüştürüyorum.
 
 - **Site:** https://ssillaa.github.io/
-- **E-posta:** sila.byrm07@gmail.com
 - **LinkedIn:** https://www.linkedin.com/in/s%C4%B1la-bayram
 - **GitHub:** https://github.com/Ssillaa
 - **Özgeçmiş:** istek üzerine e-postayla paylaşılır
@@ -24,7 +23,6 @@ doğrulanabilir bilgi olarak yazıldı. Aynı bilgi sitede
 |---|---|
 | Ad | Sıla Bayram |
 | Unvan | Junior Yazılım Uzmanı |
-| Şirket | ARD Grup Bilişim Teknolojileri |
 | Konum | Ankara, Türkiye |
 | Odak | LLM tabanlı yapay zekâ ajanları, süreç otomasyonu, gereksinim analizi, test |
 | Eğitim | OSTİM Teknik Üniversitesi, Yönetim Bilişim Sistemleri (İngilizce, burslu), 2021–2026, GANO 3,41 |
@@ -41,7 +39,7 @@ değilim; iş birimleriyle teknik ekip arasında köprü kuran bir geliştiriciy
 
 | Şirket | Rol | Tarih |
 |---|---|---|
-| ARD Grup Bilişim Teknolojileri | Junior Yazılım Uzmanı | Temmuz 2026 – günümüz |
+| ARD Grup Bilişim Teknolojileri | Junior Yazılım Uzmanı | Temmuz 2026 – Kasım 2026 |
 | ARD Grup Bilişim Teknolojileri | Yazılım Geliştirme Stajyeri | Şubat 2026 – Haziran 2026 |
 | ARD Grup Bilişim Teknolojileri | Ulusal Ar-Ge Stajyeri | Şubat 2025 – Aralık 2025 |
 | Eti Maden İşletmeleri Genel Müdürlüğü | Yönetim Bilişim Sistemleri Stajyeri | Haziran 2025 – Temmuz 2025 |
