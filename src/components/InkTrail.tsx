@@ -1,7 +1,7 @@
 import { useEffect, useRef } from 'react'
 
 /**
- * A small pistachio ink dot that trails the pointer (HIKAYE-PLANI.md, K6).
+ * A small pistachio ink dot that trails the pointer.
  * Only with a mouse, and never when the visitor asks for less motion.
  */
 export function InkTrail() {

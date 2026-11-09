@@ -21,7 +21,7 @@ function usePhone() {
 }
 
 /**
- * The sticky stage (HIKAYE-PLANI.md, K2): the drawing stays on screen while
+ * The sticky stage: the drawing stays on screen while
  * the text of each scene scrolls past it. The scene whose text crosses the
  * middle of the screen is the active one.
  */

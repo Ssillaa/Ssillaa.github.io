@@ -127,7 +127,6 @@ Kaydırdıkça değişen, kitap okur gibi ilerleyen tek sayfalık bir hikâye si
 | `src/styles.css` | Renkler (`:root`) ve görünüm |
 | `public/llms.txt` | Yapay zekâ ajanları için kısa profil |
 | `METINLER.md` | Yazıların düz metin hâli, düzenlemek için |
-| `HIKAYE-PLANI.md` | Tasarım kararları |
 
 ### Çalıştırma
 

@@ -13,7 +13,7 @@ export function panelFromHash(hash: string): PanelId | null {
 }
 
 /**
- * The one side panel (HIKAYE-PLANI.md, K7, K8): the künye or a project.
+ * The one side panel: the künye or a project.
  * A native modal dialog, so focus stays inside and Esc closes it; it slides
  * in from the right on a desktop and up from the bottom on a phone.
  */

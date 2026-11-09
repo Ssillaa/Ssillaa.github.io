@@ -2,7 +2,7 @@ import rough from 'roughjs'
 import type { Options, PathInfo } from 'roughjs/bin/core'
 
 /*
- * Rough.js turns each clean path into a hand-drawn one (HIKAYE-PLANI.md, K4).
+ * Rough.js turns each clean path into a hand-drawn one.
  * We use only its generator: it returns path data, and React draws the paths,
  * so the CSS line-drawing animation and the colour tokens keep working.
  */

@@ -4,7 +4,7 @@ import type { DrawingWords, SceneId } from '../data'
 import { fillLines, line, wash } from './sketch'
 
 /*
- * Pencil drawings (HIKAYE-PLANI.md, K4), drawn with Rough.js (`./sketch`).
+ * Pencil drawings, drawn with Rough.js (`./sketch`).
  *
  * Each shape is written as a clean SVG path; Rough.js makes it hand-drawn:
  * lines that wobble, hatching, cross-hatching, dots and zigzags for shading,
